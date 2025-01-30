@@ -32,8 +32,10 @@ function limpiarAmigoSecreto() {
 //agregar amigo en lista para el sorte y en lista para mostrar en la interfaz
 function agregarAmigo() {
     let amigo = document.querySelector('#amigo').value;
-    if (amigo == '') {
-        alert('Por favor,Agregar un nombre valido ');
+
+    if (amigo == '' || amigo.length < 3) {
+        alert('Por favor, Agregar un nombre válido.!');
+
     } else {
         agregarALista(amigo);
         listaAmigos.push(amigo);
@@ -43,8 +45,8 @@ function agregarAmigo() {
 
 //Sorteo del amigo secreto 
 function sortearAmigo() {
-    if (listaAmigos.length == 0) {
-        alert('Primero debes agregar tus amigos secretos');
+    if (listaAmigos.length <= 1) {
+        alert('Debes por lo menos agregar Dos nombres de tus amigos.!');
     } else {
         limpiarAmigoSecreto();
         let amigoSecreto = listaAmigos[Math.floor(Math.random() * listaAmigos.length)];
